@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Top bar with logo and app name -->
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:padding="6dp">
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo1" />
+
+        <TextView
+            android:id="@+id/appNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Intelligent Camera App"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:layout_toRightOf="@id/logoImageView"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp" />
+    </RelativeLayout>
+
+    <!-- Preview view for the camera feed -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar" />
+
+    <!-- TextView to display results -->
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:background="@drawable/red_border"
+        android:text="Result"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:layout_below="@id/topBar"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"/>
+
+    <!-- Button to capture image -->
+    <Button
+        android:id="@+id/captureButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_background"
+        android:text="Capture"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+</RelativeLayout>
