@@ -152,8 +152,9 @@ public class MainActivity extends AppCompatActivity {
         preview.setSurfaceProvider(previewView.getSurfaceProvider());
 
         imageCapture = new ImageCapture.Builder()
-                .setTargetRotation(Surface.ROTATION_0) // Use fixed rotation for optimization
+                .setTargetRotation(getWindowManager().getDefaultDisplay().getRotation())
                 .build();
+
 
         ImageAnalysis imageAnalyzer = new ImageAnalysis.Builder()
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
@@ -179,20 +180,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void capturePhoto() {
         if (imageCapture == null) {
             return;
         }
 
-        ImageCapture.OutputFileOptions outputOptions = createOutputFileOptions();
+        // Récupérez le résultat actuellement affiché
+        String result = resultTextView.getText().toString();
+
+        // Créez les options de fichier de sortie avec le résultat
+        ImageCapture.OutputFileOptions outputOptions = createOutputFileOptions(result);
 
         imageCapture.takePicture(outputOptions, ContextCompat.getMainExecutor(this), new ImageCapture.OnImageSavedCallback() {
             @Override
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                 Uri savedUri = outputFileResults.getSavedUri();
                 if (savedUri != null) {
-                    // Show the image preview dialog
                     showImagePreviewDialog(savedUri);
                 }
             }
@@ -206,15 +209,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "capturePhoto called");
     }
 
-    private ImageCapture.OutputFileOptions createOutputFileOptions() {
+
+
+    private ImageCapture.OutputFileOptions createOutputFileOptions(String result) {
+
+        String sanitizedResult = result.replace(" ", "_").toLowerCase();
+
+        String fileName = sanitizedResult + "_" + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date()) + ".jpg";
+
         ContentValues contentValues = new ContentValues();
-        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date()) + ".jpg");
+        contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, fileName);
         contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
-        contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/IntelligentCameraApp");
+        contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/SYLENS");
 
         return new ImageCapture.OutputFileOptions.Builder(
                 getContentResolver(), MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues).build();
     }
+
 
     private void showImagePreviewDialog(Uri imageUri) {
         // Create a new dialog
