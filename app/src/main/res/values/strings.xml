@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SYLENS</string>
+    <string name="select_photos">Select Photos</string>
+    <string name="capture">Capture</string>
+    <string name="result">Result</string>
+    <string name="intelligentcameraapp">Intelligent Camera App</string>
+</resources>

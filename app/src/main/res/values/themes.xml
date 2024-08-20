@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.IntelligentCameraApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary branding color. -->
+        <item name="colorPrimary">@color/eiffage_red</item>
+        <item name="colorPrimaryVariant">@color/eiffage_dark_gray</item>
+        <item name="colorOnPrimary">@color/eiffage_white</item>
+        <!-- Secondary branding color. -->
+        <item name="colorSecondary">@color/eiffage_light_gray</item>
+        <item name="colorSecondaryVariant">@color/eiffage_dark_gray</item>
+        <item name="colorOnSecondary">@color/eiffage_white</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+</resources>
