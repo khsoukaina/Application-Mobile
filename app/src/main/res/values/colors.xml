@@ -1,0 +1,13 @@
+<resources>
+    <color name="colorPrimary">#FF0000</color> <!-- Rouge -->
+    <color name="colorPrimaryDark">#B22222</color> <!-- Rouge foncé -->
+    <color name="colorAccent">#FFFFFF</color> <!-- Blanc -->
+    <color name="colorBlack">#000000</color> <!-- Noir -->
+    <color name="colorWhite">#FFFFFF</color> <!-- Blanc -->
+
+    <!-- Couleurs spécifiques à Eiffage -->
+    <color name="eiffage_red">#FF0000</color> <!-- Utilisez le code hexadécimal exact pour la couleur rouge Eiffage -->
+    <color name="eiffage_dark_gray">#A9A9A9</color> <!-- Utilisez le code hexadécimal exact pour la couleur gris foncé -->
+    <color name="eiffage_white">#FFFFFF</color> <!-- Blanc pur -->
+    <color name="eiffage_light_gray">#D3D3D3</color> <!-- Utilisez le code hexadécimal exact pour la couleur gris clair -->
+</resources>
