@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- ImageView for displaying the captured image -->
+    <ImageView
+        android:id="@+id/previewImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_below="@id/previewImageView"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true" />
+
+    <!-- Discard Button -->
+    <Button
+        android:id="@+id/discardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Discard"
+        android:layout_below="@id/previewImageView"
+        android:layout_marginTop="16dp"
+        android:layout_toStartOf="@id/saveButton"
+        android:layout_marginEnd="16dp" />
+
+</RelativeLayout>
